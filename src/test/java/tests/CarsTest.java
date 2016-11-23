@@ -12,7 +12,8 @@ public class CarsTest extends BaseTestScript {
         browser.open("https://www.cars.com");
         browser.takeScreenshot();
 
-        CarsPage.makeDropdown.waitToBeVisible().selectByText("Toyota");
+        browser.sleep(2000);
+        CarsPage.makeDropdown.waitToBeVisible().click().selectByText("Toyota");
         CarsPage.zipInput.type("10001");
         CarsPage.searchSubmit.waitToBeClickable().click();
 
