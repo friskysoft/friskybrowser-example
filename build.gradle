@@ -1,0 +1,33 @@
+group 'com.friskysoft'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '6.+'
+    testCompile group: 'com.friskysoft', name: 'friskybrowser', version: '+'
+    testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '1.+'
+}
+
+clean {
+    delete 'screenshots'
+}
+
+test {
+    useTestNG() {
+        parallel 'classes'
+        threadCount 2
+    }
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED", "STANDARD_OUT", "STANDARD_ERROR"
+        exceptionFormat = 'full'
+    }
+}
