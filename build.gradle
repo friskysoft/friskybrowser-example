@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.+'
-    testCompile group: 'com.friskysoft', name: 'friskybrowser', version: '+'
+    testCompile group: 'com.friskysoft', name: 'friskybrowser', version: '0.0.1-SNAPSHOT'
     testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '1.+'
 }
 
