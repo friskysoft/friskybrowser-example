@@ -6,6 +6,8 @@ import pages.CarsPage;
 
 public class CarsTest extends BaseTestScript {
 
+    CarsPage carsPage = new CarsPage();
+
     @Test
     public void carsTest() {
 
@@ -13,12 +15,15 @@ public class CarsTest extends BaseTestScript {
         browser.takeScreenshot();
 
         browser.sleep(2000);
-        CarsPage.makeDropdown.waitToBeVisible().click().selectByText("Toyota");
-        CarsPage.zipInput.type("10001");
-        CarsPage.searchSubmit.waitToBeClickable().click();
+        carsPage.searchNowButton.waitToBeClickable().click();
+        carsPage.searchModal.waitToBeVisible();
+        carsPage.makeDropdown.waitToBeClickable().click();
+        carsPage.makeDropdownOptionByLabel("Toyota").waitToBeClickable().click();
+        carsPage.zipInput.type("10001");
+        carsPage.searchSubmit.waitToBeClickable().click();
 
-        CarsPage.searchResultListing.waitToBeVisible(10);
-        String actualText = CarsPage.searchResultTitle.getText();
+        carsPage.searchResultListing.waitToBeVisible(10);
+        String actualText = carsPage.searchResultTitle.waitToBeVisible(10).getText();
         Assert.assertTrue(actualText.contains("Toyota"));
 
     }

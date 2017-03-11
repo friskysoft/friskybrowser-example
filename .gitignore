@@ -17,3 +17,5 @@ tools/
 **/*.ear
 hs_err_pid*
 gradle.properties
+chromedriver
+geckodriver

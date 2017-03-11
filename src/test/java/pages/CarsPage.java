@@ -5,13 +5,18 @@ import com.friskysoft.framework.Element;
 public class CarsPage {
 
     // home page
-    public static final Element homePage = new Element("div.page");
-    public static final Element makeDropdown = new Element(".sw-input-group-make select");
-    public static final Element zipInput = new Element(".sw-input-group-zip input");
-    public static final Element searchSubmit = new Element("input[value=Search]");
+    public Element homePage = new Element("div.page");
+    public Element searchNowButton = new Element("//button[contains(text(), 'Search Now')]");
+    public Element searchModal = new Element("div.modal");
+    public Element makeDropdown = new Element("select[ng-model='selections.make']");
+    public Element makeDropdownOptionByLabel(String label) {
+        return new Element("select[ng-model='selections.make'] option[label='" + label + "']");
+    }
+    public Element zipInput = new Element("input.zip-field");
+    public Element searchSubmit = new Element("button[type='submit']");
 
     // results page
-    public static final Element searchResultListing = new Element("#listings");
-    public static final Element searchResultTitle = new Element("//h1");
+    public Element searchResultListing = new Element("#listings");
+    public Element searchResultTitle = new Element("//h1[@class='srp-header']");
 
 }

@@ -6,20 +6,22 @@ import pages.GooglePage;
 
 public class GoogleTest extends BaseTestScript {
 
+    GooglePage googlePage = new GooglePage();
+
     @Test
     public void searchTest() {
 
         browser.open("https://www.google.com/?complete=0");
         browser.takeScreenshot();
 
-        GooglePage.searchBox.waitToBePresent().sendKeys("Selenium");
-        GooglePage.searchButton.waitToBeClickable().click();
-        GooglePage.searchResults.waitToBePresent(10);
+        googlePage.searchBox.waitToBePresent().sendKeys("selenium webdriver");
+        googlePage.searchButton.waitToBeClickable().click();
+        googlePage.searchResults.waitToBePresent(10);
 
-        String actualText = GooglePage.searchResults.getFirst().getText();
+        String actualText = googlePage.searchResults.getFirst().getText();
         Assert.assertTrue(actualText.contains("Selenium"));
 
-        String actualLink = GooglePage.searchResultLinks.getFirst().getLink();
+        String actualLink = googlePage.searchResultLinks.getFirst().getLink();
         Assert.assertTrue(actualLink.contains("seleniumhq.org"));
 
     }

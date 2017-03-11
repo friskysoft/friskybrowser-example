@@ -5,6 +5,8 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,14 +15,9 @@ public class BaseTestScript {
 
     @BeforeClass
     public void setup() {
-
-        // Autoconfigure chromedriver executable
-        ChromeDriverManager.getInstance().setup();
-
-        // Start a new webdriver using frisky-browser
-        browser = Browser.newInstance(BrowserType.CHROME)
-                .setPageLoadTimeout(30, TimeUnit.SECONDS)
-                .setImplicitWait(5, TimeUnit.SECONDS);
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        WebDriver driver = new ChromeDriver();
+        browser = Browser.newInstance(driver);
     }
 
     @AfterClass
