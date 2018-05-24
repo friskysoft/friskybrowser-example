@@ -5,19 +5,16 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
-    }
 }
 
 dependencies {
-    testCompile group: 'org.testng', name: 'testng', version: '6.10'
-    testCompile group: 'com.friskysoft', name: 'friskybrowser', version: '+'
-    testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '1.+'
+    testCompile group: 'org.testng', name: 'testng', version: '[6,)'
+    testCompile group: 'com.friskysoft', name: 'friskybrowser', version: '[1,)'
+    testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '[2,)'
 }
 
 clean {
-    delete 'screenshots'
+    delete 'screenshots', 'build', 'out', 'target'
 }
 
 test {
