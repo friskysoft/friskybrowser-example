@@ -22,8 +22,9 @@ public class GoogleTest extends BaseTestScript {
         Assert.assertTrue(actualText.contains("Selenium"));
 
         String actualLink = googlePage.searchResultLinks.getFirst().getLink();
-        Assert.assertTrue(actualLink.contains("seleniumhq.org"));
+        Assert.assertTrue(actualLink.contains("selenium"));
 
+        driver.takeScreenshot(true);
     }
 
 }
