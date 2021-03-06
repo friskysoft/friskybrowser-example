@@ -11,7 +11,7 @@ public class BaseTestScript {
 
     @BeforeClass
     public void setup() {
-        driver = Browser.newLocalDriver(BrowserType.CHROME);
+        driver = Browser.newLocalDriver(BrowserType.CHROME).moveToCenter();
     }
 
     @AfterClass
