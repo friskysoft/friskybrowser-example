@@ -10,6 +10,8 @@ public class GitHubPage {
 
     public Element users = new Element("//a[contains(text(),'Users')]");
 
-    public Element firstItem = new Element(".user-list:first-child .text-normal a");
+    public Element allItems = new Element("#user_search_results > div");
+
+    public Element firstItem = new Element("#user_search_results :first-child .text-normal a");
 
 }
